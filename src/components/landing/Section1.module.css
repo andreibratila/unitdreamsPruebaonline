@@ -1,0 +1,58 @@
+/* Section1.module.css */
+.header span {
+  position: relative;
+  color: transparent;
+  -webkit-text-stroke: 1px white; /* Contorno blanco por defecto */
+}
+
+.header span.blue {
+  -webkit-text-stroke: 1px #2cd3cb; /* Contorno azul para 'AG' y 'UNIT' */
+}
+
+.header span.white {
+  -webkit-text-stroke: 1px white; /* Contorno blanco para 'ENCIA' */
+}
+
+/* Efecto de relleno progresivo */
+.header span::before {
+  content: attr(data-text);
+  position: absolute;
+  color: white;
+  width: 0%;
+  overflow: hidden;
+  transition-duration: 1.4s;
+  white-space: nowrap;
+}
+/* 2-1.4
+ 0.4 -0.28
+ 1.6 - 1.12  */
+.header span.ag::before {
+  transition-duration: 0.28s; /* Duración ajustada para 'AG' */
+}
+
+.header span.blue::before {
+  color: #2cd3cb; /* Color final del texto azul */
+}
+
+.header.fill span::before {
+  width: 100%;
+}
+
+/* Añadir una transición en el segundo span para que se llene después del primero */
+.header.fill span.white::before {
+  transition-delay: 0.28s;
+  transition-duration: 1.12s; /* Duración ajustada para que coincida con 'AG' */
+}
+
+.text1 {
+  font-size: max(14px,0.868vw);
+}
+.text2 {
+  font-size: max(50px,2.894vw);
+}
+.text3 {
+  font-size: max(60px,3.472vw);
+}
+.text4 {
+  font-size: max(120px,6.944vw);
+}
